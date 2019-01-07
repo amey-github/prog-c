@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main(int argc , char *argv[])
+{
+    FILE *fp = NULL;
+    char ch;
+
+    fp = fopen(argv[1] , "r");
+
+    if(fp == NULL)
+    {
+        puts("\nError !!\n");
+        exit(0);
+    }
+
+    ch = fgetc(fp);
+
+    while(ch!=EOF)
+    {
+        printf("%c", ch);
+        ch = fgetc(fp);
+    }
+
+    fflush(fp);
+    fclose(fp);
+}
